@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defaultTextColor">#FFFFFF</color>
+    <color name="errorColor">#E53935</color>
+    <color name="infoColor">#D566a6ff</color>
+    <color name="successColor">#D849E67E</color>
+    <color name="warningColor">#D8FDD835</color>
+    <color name="normalColor">#868f96</color>
+</resources>
+

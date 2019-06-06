@@ -1,0 +1,121 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
+
+def siteUrl = "http://www.hasiy.top"
+def gitUrl = "https://github.com/Hasiy/Toasts"
+def groupIdDefined = "top.hasiy"
+def artifactIdDefined = "toasts"
+def versionDefined = "1.0.0"
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 28
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+}
+
+Properties properties = new Properties()
+properties.load(new FileInputStream(rootProject.file("hasiy.properties")))
+
+android.libraryVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = "${artifactIdDefined}-${versionDefined}.aar"
+    }
+}
+
+bintray {
+    user = properties.user
+    key = ""
+    configurations = ['archives']
+    pkg {
+        repo = "hasiy"
+        name = artifactIdDefined
+        version {
+            name = versionDefined
+            desc = siteUrl
+            vcsTag = versionDefined
+        }
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["LGPL-3.0"]
+        publish = true
+    }
+}
+
+task createPom {
+    apply plugin: 'maven'
+    description "create Pom for Toast"
+    doLast {
+        pom {
+            project {
+                groupId "${groupIdDefined}"
+                artifactId "${artifactIdDefined}"
+                version "${versionDefined}"
+                packaging "aar"
+                licenses {
+                    license {
+                        name 'GNU Lesser General Public License version 3'
+                        url 'https://opensource.org/licenses/lgpl-3.0.html'
+                    }
+                }
+            }
+        }.withXml {
+            //一定要有不然  依赖会缺失
+            def dependenciesNode = asNode().appendNode('dependencies')
+            configurations.implementation.allDependencies.each { dependency ->
+                def dependencyNode = dependenciesNode.appendNode('dependency')
+                dependencyNode.appendNode('groupId', dependency.group)
+                dependencyNode.appendNode('artifactId', dependency.name)
+                dependencyNode.appendNode('version', dependency.version)
+            }
+        }.writeTo("${artifactIdDefined}-${versionDefined}.pom")
+    }
+}
+
+// 生成Java源码jar文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    baseName = "${artifactIdDefined}-${versionDefined}"
+    classifier = 'sources'
+}
+
+// 生成Javadoc文件
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+    options.encoding = "utf-8"
+    options.charSet = "utf-8"
+}
+// 生成Javadoc_jar文件
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    baseName = "${artifactIdDefined}-${versionDefined}"
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+

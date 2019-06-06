@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ToastsDemo</string>
+
+    <string name="error_message">这是错误的toast!!!</string>
+    <string name="success_message">这是成功的toast!</string>
+    <string name="info_message">一般显示信息的toast</string>
+    <string name="warning_message">这是警告的toast</string>
+    <string name="normal_message_without_icon">默认toasts 无icon</string>
+    <string name="normal_message_with_icon">默认toasts 有icon</string>
+    <string name="custom_message">sudo kill -9 everyone</string>
+</resources>
