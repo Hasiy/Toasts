@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
         button4.setOnClickListener {
             Toasts.warning(this, R.string.warning_message, toastLength, true).show()
-
         }
         button5.setOnClickListener {
             Toasts.normal(this, R.string.normal_message_without_icon).show()

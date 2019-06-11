@@ -7,7 +7,7 @@ def siteUrl = "http://www.hasiy.top"
 def gitUrl = "https://github.com/Hasiy/Toasts"
 def groupIdDefined = "top.hasiy"
 def artifactIdDefined = "toasts"
-def versionDefined = "1.0.0"
+def versionDefined = "1.0.1"
 
 android {
     compileSdkVersion 28
@@ -25,7 +25,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
 }
 
@@ -97,11 +96,17 @@ task sourcesJar(type: Jar) {
 // 生成Javadoc文件
 task javadoc(type: Javadoc) {
     failOnError false
-    source = android.sourceSets.main.java.sourceFiles
+    source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     classpath += configurations.compile
     options.encoding = "utf-8"
     options.charSet = "utf-8"
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+        variant.javaCompileProvider.get().classpath.files
+    })
 }
 // 生成Javadoc_jar文件
 task javadocJar(type: Jar, dependsOn: javadoc) {
