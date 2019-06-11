@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         }
         button3.setOnClickListener {
             Toasts.info(this, R.string.info_message, toastLength, true).show()
-
         }
         button4.setOnClickListener {
             Toasts.warning(this, R.string.warning_message, toastLength, true).show()
