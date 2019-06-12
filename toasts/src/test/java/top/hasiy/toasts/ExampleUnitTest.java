@@ -1,7 +1,7 @@
 package top.hasiy.toasts;
 
 import org.junit.Test;
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

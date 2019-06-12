@@ -1,12 +1,10 @@
 package top.hasiy.toasts;
 
 import android.content.Context;
-
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +18,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-
-        assertEquals("es.dmoral.toasty.test", appContext.getPackageName());
+        assertEquals("top.hasiy.toasts.test", appContext.getPackageName());
     }
 }

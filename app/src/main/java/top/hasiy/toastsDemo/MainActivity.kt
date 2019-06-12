@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button1.setOnClickListener {
-            Toasts.error(this, R.string.error_message, toastLength, true).show()
+            Toasts.success(this, R.string.success_message, toastLength, true).show()
         }
         button2.setOnClickListener {
-            Toasts.success(this, R.string.success_message, toastLength, true).show()
+            Toasts.error(this, R.string.error_message, toastLength, true).show()
         }
         button3.setOnClickListener {
             Toasts.info(this, R.string.info_message, toastLength, true).show()
@@ -39,7 +39,11 @@ class MainActivity : AppCompatActivity() {
         button5.setOnClickListener {
             Toasts.normal(this, R.string.normal_message_without_icon).show()
         }
+
         button6.setOnClickListener {
+            Toasts.Config.getInstance()
+                .tintIcon(false) // 可选项 是否将字体颜色应用到icon上
+                .apply()
             Toasts.normal(
                 this,
                 R.string.normal_message_with_icon,
@@ -52,9 +56,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         Button8.setOnClickListener {
+            Toasts.Config.reset()
             Toasts.Config.getInstance()
-                .setToastTypeface(Typeface.createFromAsset(this.assets, "PCap Terminal.otf"))
-                .allowQueue(false)
+                .tintIcon(false) // 可选项 是否将字体颜色应用到icon上
+                .setToastTypeface(Typeface.createFromAsset(this.assets, "PCap Terminal.otf")) // 可选项 设置字体
+                .setTextSize(11) // 可选项 设置字体大小
+                .allowQueue(false) // 可选项 是否Toasts 排队
                 .apply()
             Toasts.custom(
                 this, R.string.custom_message,

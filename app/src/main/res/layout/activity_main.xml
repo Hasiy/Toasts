@@ -9,7 +9,7 @@
         tools:context="top.hasiy.toastsDemo.MainActivity">
 
     <Button
-            android:text="错误信息toasts"
+            android:text="成功信息吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button1"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp"/>
     <Button
-            android:text="成功信息toasts"
+            android:text="错误信息吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button2"
@@ -33,7 +33,7 @@
             android:layout_marginStart="20dp"
             app:layout_constraintTop_toBottomOf="@+id/button1"/>
     <Button
-            android:text="一般信息toasts"
+            android:text="一般信息吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button3"
@@ -45,7 +45,7 @@
             android:layout_marginTop="25dp"
             app:layout_constraintTop_toBottomOf="@+id/button2"/>
     <Button
-            android:text="警告信息toasts"
+            android:text="警告信息吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button4"
@@ -57,7 +57,7 @@
             android:layout_marginStart="20dp"
             app:layout_constraintTop_toBottomOf="@+id/button3"/>
     <Button
-            android:text="默认toasts 无icon"
+            android:text="默认吐司 无icon"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button5"
@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button4"/>
 
     <Button
-            android:text="默认toasts 有icon"
+            android:text="默认吐司 有icon"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button6"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button5"/>
 
     <Button
-            android:text="粗体斜体字toasts"
+            android:text="粗体斜体字吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/button7"
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button6"/>
 
     <Button
-            android:text="个性化字体toasts"
+            android:text="个性化字体吐司"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:id="@+id/Button8"
@@ -135,5 +135,20 @@
             tools:ignore="HardcodedText" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/button1"/>
+
+
+    <Button
+            android:text="Dialog"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/dialog"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/defaultTextColor"
+            tools:ignore="HardcodedText"
+            android:layout_marginTop="150dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="196dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
