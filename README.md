@@ -10,10 +10,6 @@
 dependencies {
     implementation 'top.hasiy:toasts:1.0.1'
 }
-
-repositories {
-    maven { url "https://dl.bintray.com/hasiy/hasiy" }
-}
 ```
 
 ## 可选配置 Config 
