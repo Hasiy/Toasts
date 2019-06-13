@@ -2,7 +2,6 @@ package top.hasiy.toastsDemo
 
 import android.graphics.Typeface
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import top.hasiy.toasts.Toasts
 import kotlinx.android.synthetic.main.activity_main.*
 import android.text.Spannable
@@ -10,12 +9,16 @@ import android.graphics.Typeface.BOLD_ITALIC
 import android.os.Build
 import android.text.style.StyleSpan
 import android.text.SpannableStringBuilder
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.hasiy.toastsDemo.R
+import top.hasiy.spinkitdialog.dialog.SpankProgressBarMold.spinkitProgressBarDialogRotatingPlaneMessage
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private var toastLength = Toasts.LENGTH_SHORT
     @RequiresApi(Build.VERSION_CODES.N)
@@ -81,19 +84,34 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             }
         }
-    }
 
-    private fun getFormattedMessage(): CharSequence {
-        val prefix = "Formatted "
-        val highlight = "bold italic"
-        val suffix = " text"
-        val ssb = SpannableStringBuilder(prefix).append(highlight).append(suffix)
-        val prefixLen = prefix.length
-        ssb.setSpan(
-            StyleSpan(BOLD_ITALIC),
-            prefixLen, prefixLen + highlight.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        return ssb
+        dialog.setOnClickListener {
+            spinkitProgressBarDialog = spinkitProgressBarDialogRotatingPlaneMessage("正在加载。。。", ActivityCompat.getColor(this, R.color.colorAccent))
+            showLoading(supportFragmentManager)
+            val timer = Timer()
+            timer.schedule(object : TimerTask() {
+                override fun run() {
+                    dismissLoading()
+                    Log.d("Hasiy", "dismissNoMessageLoading")
+                }
+            }, 5000)
+        }
     }
 
 }
+
+private fun getFormattedMessage(): CharSequence {
+    val prefix = "Formatted "
+    val highlight = "bold italic"
+    val suffix = " text"
+    val ssb = SpannableStringBuilder(prefix).append(highlight).append(suffix)
+    val prefixLen = prefix.length
+    ssb.setSpan(
+        StyleSpan(BOLD_ITALIC),
+        prefixLen, prefixLen + highlight.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+    )
+    return ssb
+}
+
+
+

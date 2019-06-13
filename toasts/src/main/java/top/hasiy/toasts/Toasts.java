@@ -34,10 +34,8 @@ public class Toasts {
     private static final Typeface LOADED_TOAST_TYPEFACE = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
     private static Typeface currentTypeface = LOADED_TOAST_TYPEFACE;
     private static int textSize = 16; // in SP
-
     private static boolean tintIcon = true;
     private static boolean allowQueue = true;
-
     private static Toast lastToast = null;
 
     public static final int LENGTH_SHORT = Toast.LENGTH_SHORT;
