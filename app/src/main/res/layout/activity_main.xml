@@ -16,10 +16,10 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="148dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"/>
+            android:layout_marginStart="128dp"/>
     <Button
             android:text="错误信息吐司"
             android:layout_width="150dp"
@@ -28,9 +28,9 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="128dp"
             app:layout_constraintTop_toBottomOf="@+id/button1"/>
     <Button
             android:text="一般信息吐司"
@@ -41,8 +41,8 @@
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/button2"/>
     <Button
             android:text="警告信息吐司"
@@ -52,9 +52,9 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="128dp"
             app:layout_constraintTop_toBottomOf="@+id/button3"/>
     <Button
             android:text="默认吐司 无icon"
@@ -65,8 +65,8 @@
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/button4"/>
 
     <Button
@@ -78,8 +78,8 @@
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/button5"/>
 
     <Button
@@ -91,8 +91,8 @@
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/button6"/>
 
     <Button
@@ -104,8 +104,8 @@
             android:textColor="@color/defaultTextColor"
             tools:ignore="HardcodedText"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/button7"/>
 
 
@@ -125,6 +125,8 @@
                 android:background="@drawable/toast"
                 android:contentDescription="@null"/>
 
+
+
     </RelativeLayout>
 
     <Switch
@@ -133,22 +135,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/switch1"
             tools:ignore="HardcodedText" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="20dp" app:layout_constraintBottom_toTopOf="@+id/button1"/>
-
-
-    <Button
-            android:text="Dialog"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:id="@+id/dialog"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/defaultTextColor"
-            tools:ignore="HardcodedText"
-            android:layout_marginTop="150dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="196dp"/>
+            android:layout_marginStart="140dp"
+            android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/button1"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

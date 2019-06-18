@@ -32,6 +32,4 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     implementation project(':toasts')
-    implementation project(':dialogspinkit')
-
 }

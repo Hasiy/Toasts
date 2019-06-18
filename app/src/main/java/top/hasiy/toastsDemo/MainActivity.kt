@@ -1,32 +1,23 @@
 package top.hasiy.toastsDemo
 
 import android.graphics.Typeface
-import android.os.Bundle
 import top.hasiy.toasts.Toasts
 import kotlinx.android.synthetic.main.activity_main.*
 import android.text.Spannable
 import android.graphics.Typeface.BOLD_ITALIC
-import android.os.Build
+import android.os.Bundle
 import android.text.style.StyleSpan
 import android.text.SpannableStringBuilder
-import android.util.Log
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.hasiy.toastsDemo.R
-import top.hasiy.spinkitdialog.dialog.SpankProgressBarMold.spinkitProgressBarDialogRotatingPlaneMessage
-import java.util.*
 
 class MainActivity : BaseActivity() {
 
     private var toastLength = Toasts.LENGTH_SHORT
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         button1.setOnClickListener {
             Toasts.success(this, R.string.success_message, toastLength, true).show()
         }
@@ -85,17 +76,7 @@ class MainActivity : BaseActivity() {
             }
         }
 
-        dialog.setOnClickListener {
-            spinkitProgressBarDialog = spinkitProgressBarDialogRotatingPlaneMessage("正在加载。。。", ActivityCompat.getColor(this, R.color.colorAccent))
-            showLoading(supportFragmentManager)
-            val timer = Timer()
-            timer.schedule(object : TimerTask() {
-                override fun run() {
-                    dismissLoading()
-                    Log.d("Hasiy", "dismissNoMessageLoading")
-                }
-            }, 5000)
-        }
+
     }
 
 }

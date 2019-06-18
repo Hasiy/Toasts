@@ -329,10 +329,8 @@ public class Toasts {
     public static class Config {
         private Typeface typeface = Toasts.currentTypeface;
         private int textSize = Toasts.textSize;
-
         private boolean tintIcon = Toasts.tintIcon;
         private boolean allowQueue = true;
-
         private Config() {
             // avoiding instantiation
         }

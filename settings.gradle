@@ -1,1 +1,1 @@
-include ':app', ':dialogspinkit' , ':toasts'
+include ':app', ':toasts'
