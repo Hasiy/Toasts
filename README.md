@@ -12,7 +12,7 @@ dependencies {
 }
 ```
 
-## 可选配置 Config 
+## 可选配置 Config
 
 ```kotlin
 Toasts.Config.getInstance()
@@ -23,7 +23,7 @@ Toasts.Config.getInstance()
                 .apply()
 ```
 
-You can reset the configuration by using `reset()` method:
+## 恢复初始设置 :
 
 ```kotlin
 Toasty.Config.reset()
